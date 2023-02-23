@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 class OrderServiceImpl implements OrderService{
     @Autowired
-    OrderRepository orderRepository;
+    public OrderRepository orderRepository;
     @Override
     public OrderDto createOrder(OrderDto order) {
         OrderDto returnValue=new OrderDto();

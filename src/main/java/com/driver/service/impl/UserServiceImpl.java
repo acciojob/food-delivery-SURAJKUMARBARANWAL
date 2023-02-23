@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 class UserServiceImpl implements com.driver.service.UserService{
     @Autowired
-    UserRepository userRepository;
+    public UserRepository userRepository;
 
     @Override
     public UserDto createUser(UserDto user) throws Exception {

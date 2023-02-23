@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 class FoodServiceImpl implements FoodService{
     @Autowired
-    FoodRepository foodRepository;
+    public FoodRepository foodRepository;
     @Override
     public FoodDto createFood(FoodDto food) {
         FoodDto returnValue=new FoodDto();
