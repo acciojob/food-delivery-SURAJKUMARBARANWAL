@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-class UserServiceImpl implements com.driver.service.UserService{
+public class UserServiceImpl implements com.driver.service.UserService{
     @Autowired
     public UserRepository userRepository;
 
