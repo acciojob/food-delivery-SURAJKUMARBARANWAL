@@ -2,10 +2,7 @@ package com.driver.io.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "orders")
 public class OrderEntity {
@@ -14,7 +11,7 @@ public class OrderEntity {
 	@GeneratedValue
 	private long id;
 
-	@Column(nullable = false)
+	@Column(nullable = false,unique = true)
 	private String orderId;
 
 	@Column(nullable = false)
@@ -24,12 +21,33 @@ public class OrderEntity {
 	private String[] items;
 
 	@Column(nullable = false)
-	private String userId;
-	
-	@Column(nullable = false)
 	private boolean status;
-	public OrderEntity(){
+	@Column(nullable = false)
+	private String userId;
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	@ManyToOne
+	@JoinColumn
+	private UserEntity userEntity;
+
+	//FK for food table
+	@ManyToOne
+	@JoinColumn
+	private FoodEntity foodEntity;
+
+	public FoodEntity getFoodEntity() {
+		return foodEntity;
+	}
+
+	public void setFoodEntity(FoodEntity foodEntity) {
+		this.foodEntity = foodEntity;
 	}
 
 	public long getId() {
@@ -64,12 +82,12 @@ public class OrderEntity {
 		this.items = items;
 	}
 
-	public String getUserId() {
-		return userId;
+	public UserEntity getUserEntity() {
+		return userEntity;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserEntity(UserEntity userEntity) {
+		this.userEntity = userEntity;
 	}
 
 	public boolean isStatus() {

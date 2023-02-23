@@ -20,6 +20,7 @@ public class FoodServiceImpl implements FoodService{
         FoodDto returnValue=new FoodDto();
         FoodEntity foodEntity=new FoodEntity();
         BeanUtils.copyProperties(food,foodEntity);
+
         FoodEntity foodEntityOutput=foodRepository.save(foodEntity);
         BeanUtils.copyProperties(foodEntityOutput,returnValue);
 

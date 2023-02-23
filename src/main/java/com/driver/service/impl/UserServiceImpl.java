@@ -32,6 +32,7 @@ public class UserServiceImpl implements com.driver.service.UserService{
         //return Value
         UserDto returnValue=new UserDto();
         UserEntity user=userRepository.findByEmail(email);
+        if(user==null) throw new Exception("User not found");
         BeanUtils.copyProperties(user,returnValue);
         return returnValue;
     }
@@ -41,6 +42,7 @@ public class UserServiceImpl implements com.driver.service.UserService{
         //return Value
         UserDto returnValue=new UserDto();
         UserEntity user=userRepository.findByUserId(userId);
+        if(user==null) throw new Exception("User not found");
         BeanUtils.copyProperties(user,returnValue);
         return returnValue;
     }
@@ -50,6 +52,7 @@ public class UserServiceImpl implements com.driver.service.UserService{
         //return Value
         UserDto returnValue=new UserDto();
         UserEntity userEntity=userRepository.findByUserId(userId);
+        if(userEntity==null) throw new Exception("User not found");
         BeanUtils.copyProperties(user,userEntity);
         //save back to table
         UserEntity userEntity1=userRepository.save(userEntity);
@@ -60,7 +63,7 @@ public class UserServiceImpl implements com.driver.service.UserService{
     @Override
     public void deleteUser(String userId) throws Exception {
         UserEntity userEntity=userRepository.findByUserId(userId);
-        if(userEntity==null) throw new Exception("User is not exist");
+        if(userEntity==null) throw new Exception("User not exist");
         userRepository.delete(userEntity);
     }
 
