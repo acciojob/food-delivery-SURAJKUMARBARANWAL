@@ -25,7 +25,9 @@ public class UserEntity{
 
 	@Column(nullable = false, length = 120, unique = true)
 	private String email;
+    public UserEntity(){
 
+	}
 	public long getId() {
 		return id;
 	}

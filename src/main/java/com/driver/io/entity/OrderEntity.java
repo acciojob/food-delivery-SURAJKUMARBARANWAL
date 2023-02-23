@@ -28,6 +28,9 @@ public class OrderEntity {
 	
 	@Column(nullable = false)
 	private boolean status;
+	public OrderEntity(){
+
+	}
 
 	public long getId() {
 		return id;

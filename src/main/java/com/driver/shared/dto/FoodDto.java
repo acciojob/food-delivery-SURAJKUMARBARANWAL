@@ -9,6 +9,9 @@ public class FoodDto{
 	private String foodName;
 	private String foodCategory;
 	private float foodPrice;
+	public FoodDto(){
+
+	}
 
 	public long getId() {
 		return id;

@@ -24,6 +24,9 @@ public class FoodEntity{
 	
 	@Column(nullable = false)
 	private String foodCategory;
+	public FoodEntity(){
+
+	}
 
 	public long getId() {
 		return id;
